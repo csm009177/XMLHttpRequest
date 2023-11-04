@@ -20,14 +20,18 @@
         let json = JSON.parse(xhr.responseText);
         // Access the 'name' property and create a list
         let ul = document.getElementById('ul');
+
         // looking for joson text in json length
         for (let i = 0; i < json.length; i++) {
+          
           // cre new li tag for each text
           let li = document.createElement('li');
-          // 
+          let p = document.createElement('p'); 
           li.textContent = json[i].name;
-          li.textContent = json[i].age;
+          p.textContent = json[i].age;
           ul.appendChild(li);
+          ul.appendChild(p);
+        
         }
       }
     };
