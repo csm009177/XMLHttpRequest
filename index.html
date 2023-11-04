@@ -10,28 +10,15 @@
 <body>
   <ul id="ul"></ul>
   <script type="text/javascript">
-    // 생성자 함수
+    // 생성자 함수로 xhr초기화 create XMLHttpRequest object
     let xhr = new XMLHttpRequest();
-
+    // xhr의 상태 체크
     if (xhr.readyState == 4 && status == 200) {
-      console.log(xhr.readyState)
-      jsonfunc(xhr.readyState)
+      a = JSON.parse(xhr.responseText)
+      console.log(a);
     }
     xhr.open("GET", "name.json", true);
     xhr.send();
-
-    function jsonfunc(jsonText) {
-      let json = JSON.parse(jsonText); // String -> json으로 변환
-      let txt = "";
-      // 접근법 1
-      for (i = 0; i < json.length; i++) {
-        for (key in json[i]) { // key값 가져오기
-          txt += key + ":" + json[i][key];
-        }
-        txt += "<br>"; // 줄바꾸기
-      }
-      document.getElementById('ul').innerHTML = txt;
-    }
 
   </script>
 </body>
