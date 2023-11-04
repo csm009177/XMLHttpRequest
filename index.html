@@ -13,16 +13,15 @@
     // 생성자 함수로 xhr초기화 create XMLHttpRequest object
     let xhr = new XMLHttpRequest();
     // xhr의 상태 체크
-    let json = JSON.parse(xhr.responseText)
     if (xhr.readyState == 4 && status == 200) {
+      let json = JSON.parse(xhr.responseText)
       for(i=0; i<json.length; i++){
         for(key in json[i]){
-          
+          txt += key + ":" + json[i][key];
+          console.log(txt);
         }
       }
     }
-
-    document.getElementById('ul').innerHTML= b;
     xhr.open("GET", "name.json", true);
     xhr.send();
 
