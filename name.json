@@ -1,6 +1,11 @@
 [
-  {"name":"json"},
-  {"name":"kson"},
-  {"name":"lson"}
-
+  {"name":"json",
+   "age" :30  
+  },
+  {"name":"kson",
+    "age" :31
+  },
+  {"name":"lson",
+    "age" :32
+  }
 ]
