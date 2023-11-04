@@ -13,7 +13,7 @@
     // 생성자 함수
     let xhr = new XMLHttpRequest();
 
-    if (xhr.readyState === 4 && status === 200) {
+    if (xhr.readyState == 4 && status == 200) {
       console.log(xhr.readyState)
       jsonfunc(xhr.readyState)
     }
@@ -27,7 +27,6 @@
       for (i = 0; i < json.length; i++) {
         for (key in json[i]) { // key값 가져오기
           txt += key + ":" + json[i][key];
-          console.log(json);
         }
         txt += "<br>"; // 줄바꾸기
       }
