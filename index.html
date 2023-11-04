@@ -27,7 +27,9 @@
           // cre new li tag for each text
           let li = document.createElement('li');
           let p = document.createElement('p'); 
+          // json 파일의 i번째 객체에 있는 key name의 정보를 불러온다
           li.textContent = json[i].name;
+          // json 파일의 i번째 객체에 있는 key age의 정보를 불러온다
           p.textContent = json[i].age;
           ul.appendChild(li);
           ul.appendChild(p);
