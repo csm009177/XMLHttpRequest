@@ -1,30 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>JSON 데이터 출력</title>
 </head>
-
 <body>
-  <ul id="ul"></ul>
+  <div>
+    <ul id="ul"></ul>
+  </div>
   <script type="text/javascript">
-    // 생성자 함수로 xhr초기화 create XMLHttpRequest object
-    let xhr = new XMLHttpRequest();
-    // xhr의 상태 체크
-    if (xhr.readyState == 4 && status == 200) {
-      let json = JSON.parse(xhr.responseText)
-      for(i=0; i<json.length; i++){
-        for(key in json[i]){
-          txt += key + ":" + json[i][key];
-          console.log(txt);
+    // Create XMLHttpRequest object
+    const xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = function () {
+      // 상태 체크 readystat==4 : 요청완료 응답받음 xhr.status == 200
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        // 
+        let json = JSON.parse(xhr.responseText);
+
+        // Access the 'name' property and create a list
+        let ul = document.getElementById('ul');
+        for (let i = 0; i < json.length; i++) {
+          let li = document.createElement('li');
+          li.textContent = json[i].name;
+          ul.appendChild(li);
         }
       }
-    }
+    };
+
     xhr.open("GET", "name.json", true);
     xhr.send();
-
   </script>
 </body>
 </html>
