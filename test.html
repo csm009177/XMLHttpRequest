@@ -8,17 +8,17 @@
 <body>
   <script>
     fetch('name.json')
-      .then(response => {
-        if (!response.ok) {
+      .then((res) => {
+        if (!res.ok) {
           throw new Error('Network response was not ok');
         }
-        return response.json();
+        return res.json();
       })
-      .then(testData => {
-        console.log(testData);
+      .then(Data => {
+        console.log(Data);
       })
-      .catch(error => {
-        console.error('Fetch error:', error);
+      .catch(err => {
+        console.error('Fetch error:', err);
       });
   </script>
 </body>
