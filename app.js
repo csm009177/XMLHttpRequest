@@ -2,6 +2,7 @@ import http from 'http';
 import fs from 'fs';
 const htmlPath = 'index.html'
 const jsonPath = 'name.json'
+const xhrPath = 'xhr.js'
 
 const serv = http.createServer((req,res) =>{
   if (req.method === 'GET' && req.url === '/') {
@@ -11,6 +12,12 @@ const serv = http.createServer((req,res) =>{
         res.writeHead(200, { 'Content-Type': 'text/html' });
         res.end(data);
     });
+  } else if (req.method === 'GET' && req.url === '/xhr.js') {
+    // Read the userData.json file and send its content as a response
+    fs.readFile(xhrPath, 'utf8', (err, jsonData) => {
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(jsonData);    
+    })
   } else if (req.method === 'GET' && req.url === '/name.json') {
     // Read the userData.json file and send its content as a response
     fs.readFile(jsonPath, 'utf8', (err, jsonData) => {
